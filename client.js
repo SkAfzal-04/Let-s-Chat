@@ -1,4 +1,5 @@
-const socket = io('https://let-s-chat-1.onrender.com'); // Replace with your deployed backend URL
+const socket = io('https://let-s-chat-2.onrender.com/'); // Replace with your Render backend URL
+
 const form = document.getElementById('send-container');
 const messageInput = document.getElementById('messageInp');
 const messageContainer = document.querySelector('.container');
