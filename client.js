@@ -1,4 +1,4 @@
-const socket = io('http://localhost:8000'); // Connect to your server
+const socket = io('https://let-s-chat-1.onrender.com'); // Replace with your deployed backend URL
 const form = document.getElementById('send-container');
 const messageInput = document.getElementById('messageInp');
 const messageContainer = document.querySelector('.container');
@@ -7,17 +7,17 @@ const messageContainer = document.querySelector('.container');
 const append = (message, position) => {
   const messageElement = document.createElement('div');
   messageElement.innerText = message;
-  messageElement.classList.add('message', position);
+  messageElement.classList.add('message');
+  messageElement.classList.add(position);
   messageContainer.append(messageElement);
-  messageContainer.scrollTop = messageContainer.scrollHeight; // Auto-scroll to bottom
 };
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
   const message = messageInput.value;
-  if (message.trim() !== '') {
+  if (message.trim() !== '') { // Check if the message is not empty
     append(`You: ${message}`, 'right');
-    socket.emit('send', message);
+    socket.emit('send', message); // Send the actual message to the server
     messageInput.value = '';
   }
 });
@@ -36,7 +36,6 @@ socket.on('receive', (data) => {
   append(`${data.name}: ${data.message}`, 'left');
 });
 
-// Event listener for when a user leaves
 socket.on('leave', (name) => {
   append(`${name} left the chat`, 'left');
 });
