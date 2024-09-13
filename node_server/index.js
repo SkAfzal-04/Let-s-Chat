@@ -2,6 +2,7 @@ const express = require('express');
 const http = require('http');
 const socketIo = require('socket.io');
 const path = require('path');
+const cors = require('cors');
 
 const app = express();
 const server = http.createServer(app);
@@ -9,6 +10,13 @@ const io = socketIo(server);
 
 // Use environment port or default to 10000
 const PORT = process.env.PORT || 10000;
+
+// Allow CORS from the Vercel frontend
+app.use(cors({
+  origin: 'https://let-s-chat-eight.vercel.app', // Replace with your Vercel URL
+  methods: ['GET', 'POST'],
+  credentials: true
+}));
 
 // Serve static files from the root directory
 app.use(express.static(path.join(__dirname, '..')));
@@ -19,9 +27,11 @@ app.get('/', (req, res) => {
 });
 
 // Socket.io configuration
+const users = {}; // Add this to keep track of users
+
 io.on('connection', socket => {
   console.log('New client connected');
-  
+
   // Handle a new user joining
   socket.on('new-user-joined', name => {
     users[socket.id] = name; // Map socket ID to username
