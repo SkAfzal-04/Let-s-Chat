@@ -1,8 +1,8 @@
 const express = require('express');
 const http = require('http');
 const socketIo = require('socket.io');
+const path = require('path');
 
-// Initialize Express app and HTTP server
 const app = express();
 const server = http.createServer(app);
 const io = socketIo(server);
@@ -10,11 +10,12 @@ const io = socketIo(server);
 // Use environment port or default to 10000
 const PORT = process.env.PORT || 10000;
 
-app.use(express.static('public'));
+// Serve static files from the root directory
+app.use(express.static(path.join(__dirname, '..')));
 
-// Serve your static files (index.html, etc.)
+// Serve the main HTML file
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/public/index.html');
+  res.sendFile(path.join(__dirname, '..', 'index.html'));
 });
 
 // Socket.io configuration
