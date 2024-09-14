@@ -25,7 +25,6 @@ display:flex;
 flex-direction: column;
 align-items:center;
 color:white;
-margin-left:10px;
 }
 #user-name{
 font-sizs:18px;
