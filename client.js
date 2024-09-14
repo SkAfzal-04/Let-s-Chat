@@ -3,6 +3,7 @@ const socket = io('https://let-s-chat-2.onrender.com/'); // Replace with your Re
 const form = document.getElementById('send-container');
 const messageInput = document.getElementById('messageInp');
 const messageContainer = document.querySelector('.container');
+const userNameSpan = document.getElementById('user-name');
 
 // Function to append messages to the message container
 const append = (message, position) => {
@@ -25,6 +26,7 @@ form.addEventListener('submit', (e) => {
 
 // Prompt user for their name
 const name = prompt("Enter your name to join");
+userNameSpan.innerText=name;
 socket.emit('new-user-joined', name);
 
 // Event listener for a new user joining
