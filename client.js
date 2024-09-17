@@ -1,4 +1,4 @@
-const socket = io('https://let-s-chat-backend-beryl.vercel.app/'); // Replace with your Render backend URL
+const socket = io('https://let-s-chat-4ilh.onrender.com'); // Replace with your Render backend URL
 
 const form = document.getElementById('send-container');
 const messageInput = document.getElementById('messageInp');
