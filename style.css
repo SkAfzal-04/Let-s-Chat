@@ -1,7 +1,7 @@
-/* General body styling */
+/* Base styling for the entire page */
 body {
     height: 100vh;
-    background-color: #ece5dd; /* WhatsApp background color */
+    background-color: #ece5dd; /* WhatsApp-like background */
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
@@ -13,36 +13,38 @@ body {
 
 /* Header and logo styling */
 nav {
-    background-color: #075e54; /* WhatsApp green header */
+    background-color: #075e54; /* WhatsApp-like green header */
     padding: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
     box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.2);
 }
-.header-info{
-display:flex;
-flex-direction: column;
-align-items:center;
-color:white;
+
+.header-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
 }
-#user-name{
-font-sizs:18px;
-font-weight:bold;
+
+#user-name {
+    font-size: 18px;
+    font-weight: bold;
 }
 
 .logo {
     width: 40px;
 }
 
-/* Chat container */
+/* Chat container styling */
 .container {
     flex-grow: 1;
     margin: 10px auto;
-    max-width: 100%; /* Full width by default */
-    width: 100%; /* 100% width for large screens */
-    max-width: 1200px; /* Ensure it doesn't go beyond 1200px on larger screens */
-    height: 75vh; /* Height for larger screens */
+    max-width: 100%;
+    width: 100%;
+    max-width: 1200px; /* Limit max width for larger screens */
+    height: 75vh;
     background-color: #fff;
     border-radius: 10px;
     padding: 20px;
@@ -51,9 +53,11 @@ font-weight:bold;
     display: flex;
     flex-direction: column;
     gap: 10px;
+    padding-bottom: 80px; /* Prevent input box from covering messages */
+    scroll-behavior: smooth; /* Smooth scrolling */
 }
 
-/* Message bubbles */
+/* Message bubble styling */
 .message {
     max-width: 75%;
     padding: 10px 15px;
@@ -66,14 +70,14 @@ font-weight:bold;
     position: relative;
 }
 
-/* Sent messages (right) */
+/* Sent message (aligned to the right) */
 .message.right {
     background-color: #dcf8c6; /* WhatsApp green for sent messages */
     align-self: flex-end;
     border-bottom-right-radius: 0;
 }
 
-/* Received messages (left) */
+/* Received message (aligned to the left) */
 .message.left {
     background-color: #fff; /* White for received messages */
     align-self: flex-start;
@@ -81,7 +85,7 @@ font-weight:bold;
     border: 1px solid #ddd; /* Light border for contrast */
 }
 
-/* Input area styling */
+/* Input area styling (fixed at the bottom) */
 #send-container {
     display: flex;
     justify-content: center;
@@ -110,7 +114,7 @@ font-weight:bold;
 
 /* Send button styling */
 .btn {
-    background-color: #25d366; /* WhatsApp's green send button */
+    background-color: #25d366; /* WhatsApp's green for send button */
     color: white;
     border: none;
     border-radius: 50%;
@@ -123,7 +127,7 @@ font-weight:bold;
     align-items: center;
     font-size: 20px;
 }
-.btn i{
+.btn i {
     text-align: center;
 }
 
@@ -146,14 +150,15 @@ font-weight:bold;
 }
 
 /* Responsive styles */
+
 /* For small devices like phones */
 @media (max-width: 600px) {
     .container {
-        max-width: 90%; /* Full width for small screens */
+        max-width: 90%;
         width: 90%;
         padding: 10px;
         border-radius: 0;
-        height: 65vh; /* Reduce height for small screens */
+        height: calc(65vh - 80px); /* Reduce height considering input box */
     }
 
     .message {
@@ -175,7 +180,7 @@ font-weight:bold;
 @media (min-width: 601px) and (max-width: 1024px) {
     .container {
         max-width: 90%; /* Take up most of the screen */
-        height: 70vh; /* Adjust height for medium screens */
+        height: calc(70vh - 80px); /* Adjust height for medium screens */
     }
 }
 
@@ -183,7 +188,7 @@ font-weight:bold;
 @media (min-width: 1025px) {
     .container {
         max-width: 80%; /* Limit width to 80% of the screen */
-        height: 75vh; /* Optimal height for larger screens */
+        height: calc(75vh - 80px); /* Optimal height for larger screens */
     }
 
     #messageInp {
