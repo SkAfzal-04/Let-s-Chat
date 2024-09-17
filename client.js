@@ -17,9 +17,8 @@ const append = (message, position) => {
   messageElement.classList.add(position);
   messageContainer.append(messageElement);
   scrollToBottom();
-  if(position == 'left'){
-    audio.play();
-}// Scroll to the bottom after appending a new message
+  //if(position == 'left'){
+   // audio.play();}// Scroll to the bottom after appending a new message
 };
 
 form.addEventListener('submit', (e) => {
