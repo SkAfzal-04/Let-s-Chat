@@ -3,7 +3,7 @@ const form = document.getElementById('send-container');
 const messageInput = document.getElementById('messageInp');
 const messageContainer = document.querySelector('.container');
 const userNameSpan = document.getElementById('user-name');
-
+var audio = new Audio('ting.mp3');
 // Function to scroll to the bottom of the chat container
 const scrollToBottom = () => {
   messageContainer.scrollTop = messageContainer.scrollHeight;
@@ -16,7 +16,10 @@ const append = (message, position) => {
   messageElement.classList.add('message');
   messageElement.classList.add(position);
   messageContainer.append(messageElement);
-  scrollToBottom(); // Scroll to the bottom after appending a new message
+  scrollToBottom();
+  if(position == 'left'){
+    audio.play();
+}// Scroll to the bottom after appending a new message
 };
 
 form.addEventListener('submit', (e) => {
