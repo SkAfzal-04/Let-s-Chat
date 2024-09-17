@@ -1,7 +1,6 @@
-/* Base styling for the entire page */
 body {
     height: 100vh;
-    background-color: #ece5dd; /* WhatsApp-like background */
+    background-color: #ece5dd; /* WhatsApp background color */
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
@@ -13,7 +12,7 @@ body {
 
 /* Header and logo styling */
 nav {
-    background-color: #075e54; /* WhatsApp-like green header */
+    background-color: #075e54; /* WhatsApp green header */
     padding: 10px;
     display: flex;
     justify-content: center;
@@ -37,14 +36,14 @@ nav {
     width: 40px;
 }
 
-/* Chat container styling */
+/* Chat container */
 .container {
     flex-grow: 1;
     margin: 10px auto;
-    max-width: 100%;
-    width: 100%;
-    max-width: 1200px; /* Limit max width for larger screens */
-    height: 75vh;
+    max-width: 100%; /* Full width by default */
+    width: 100%; /* 100% width for large screens */
+    max-width: 1200px; /* Ensure it doesn't go beyond 1200px on larger screens */
+    height: calc(75vh - 60px); /* Adjust height considering the height of input area */
     background-color: #fff;
     border-radius: 10px;
     padding: 20px;
@@ -53,11 +52,9 @@ nav {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    padding-bottom: 80px; /* Prevent input box from covering messages */
-    scroll-behavior: smooth; /* Smooth scrolling */
 }
 
-/* Message bubble styling */
+/* Message bubbles */
 .message {
     max-width: 75%;
     padding: 10px 15px;
@@ -70,14 +67,14 @@ nav {
     position: relative;
 }
 
-/* Sent message (aligned to the right) */
+/* Sent messages (right) */
 .message.right {
     background-color: #dcf8c6; /* WhatsApp green for sent messages */
     align-self: flex-end;
     border-bottom-right-radius: 0;
 }
 
-/* Received message (aligned to the left) */
+/* Received messages (left) */
 .message.left {
     background-color: #fff; /* White for received messages */
     align-self: flex-start;
@@ -85,7 +82,7 @@ nav {
     border: 1px solid #ddd; /* Light border for contrast */
 }
 
-/* Input area styling (fixed at the bottom) */
+/* Input area styling */
 #send-container {
     display: flex;
     justify-content: center;
@@ -114,7 +111,7 @@ nav {
 
 /* Send button styling */
 .btn {
-    background-color: #25d366; /* WhatsApp's green for send button */
+    background-color: #25d366; /* WhatsApp's green send button */
     color: white;
     border: none;
     border-radius: 50%;
@@ -127,6 +124,7 @@ nav {
     align-items: center;
     font-size: 20px;
 }
+
 .btn i {
     text-align: center;
 }
@@ -150,15 +148,14 @@ nav {
 }
 
 /* Responsive styles */
-
 /* For small devices like phones */
 @media (max-width: 600px) {
     .container {
-        max-width: 90%;
+        max-width: 90%; /* Full width for small screens */
         width: 90%;
         padding: 10px;
         border-radius: 0;
-        height: calc(65vh - 80px); /* Reduce height considering input box */
+        height: calc(65vh - 60px); /* Reduce height and consider input area height */
     }
 
     .message {
@@ -180,7 +177,7 @@ nav {
 @media (min-width: 601px) and (max-width: 1024px) {
     .container {
         max-width: 90%; /* Take up most of the screen */
-        height: calc(70vh - 80px); /* Adjust height for medium screens */
+        height: calc(70vh - 60px); /* Adjust height considering input area height */
     }
 }
 
@@ -188,7 +185,7 @@ nav {
 @media (min-width: 1025px) {
     .container {
         max-width: 80%; /* Limit width to 80% of the screen */
-        height: calc(75vh - 80px); /* Optimal height for larger screens */
+        height: calc(75vh - 60px); /* Optimal height for larger screens */
     }
 
     #messageInp {
