@@ -32,7 +32,7 @@ nav {
     font-weight: bold;
 }
 
-.logo {
+.logo img{
     width: 40px;
 }
 
@@ -155,7 +155,7 @@ nav {
         width: 90%;
         padding: 10px;
         border-radius: 0;
-        height: calc(65vh - 60px); /* Reduce height and consider input area height */
+        padding-bottom: 73px; /* Reduce height and consider input area height */
     }
 
     .message {
@@ -177,7 +177,7 @@ nav {
 @media (min-width: 601px) and (max-width: 1024px) {
     .container {
         max-width: 90%; /* Take up most of the screen */
-        height: calc(70vh - 60px); /* Adjust height considering input area height */
+        padding-bottom: 73px; /* Adjust height considering input area height */
     }
 }
 
@@ -185,7 +185,7 @@ nav {
 @media (min-width: 1025px) {
     .container {
         max-width: 80%; /* Limit width to 80% of the screen */
-        height: calc(75vh - 60px); /* Optimal height for larger screens */
+        padding-bottom: 73px; /* Optimal height for larger screens */
     }
 
     #messageInp {
